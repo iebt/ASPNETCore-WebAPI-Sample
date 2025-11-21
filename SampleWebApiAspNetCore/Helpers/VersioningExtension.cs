@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Versioning;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace SampleWebApiAspNetCore.Helpers
@@ -17,8 +17,8 @@ namespace SampleWebApiAspNetCore.Helpers
                    config.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader(),
                                                                                         new HeaderApiVersionReader("x-api-version"),
                                                                                         new MediaTypeApiVersionReader("x-api-version"));
-               });
-            services.AddVersionedApiExplorer(
+               })
+            .AddApiExplorer(
                 options =>
                 {
                     options.GroupNameFormat = "'v'VVV";
